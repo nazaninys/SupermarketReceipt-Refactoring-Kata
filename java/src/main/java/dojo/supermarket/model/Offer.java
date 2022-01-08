@@ -11,6 +11,17 @@ public class Offer {
         this.product = product;
     }
 
+    public int specifyType() {
+        if (offerType == SpecialOfferType.ThreeForTwo)
+            return 3;
+        else if (offerType == SpecialOfferType.TwoForAmount)
+            return 2;
+        else if (offerType == SpecialOfferType.FiveForAmount)
+            return 5;
+        else
+            return 1;
+    }
+
     Product getProduct() {
         return this.product;
     }
