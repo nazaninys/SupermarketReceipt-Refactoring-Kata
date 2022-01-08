@@ -21,14 +21,10 @@ public class Teller {
         Receipt receipt = new Receipt();
         List<ProductQuantity> productQuantities = theCart.getItems();
         for (ProductQuantity pq: productQuantities) {
-            Product p = pq.getProduct();
-            double quantity = pq.getQuantity();
-            double unitPrice = this.catalog.getUnitPrice(p);
-            double price = quantity * unitPrice;
-            receipt.addProduct(p, quantity, unitPrice, price);
+            double price = pq.getQuantity() * this.catalog.getUnitPrice(pq.getProduct());
+            receipt.addProduct(pq.getProduct(), pq.getQuantity(), this.catalog.getUnitPrice(pq.getProduct()), price);
         }
         theCart.handleOffers(receipt, this.offers, this.catalog);
-
         return receipt;
     }
 

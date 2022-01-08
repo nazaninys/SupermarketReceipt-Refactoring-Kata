@@ -12,8 +12,8 @@ public class FiveForAmountSpecialOffer extends SpecialOffer{
 
     @Override
     public double calculateDiscountAmount(double quantity, double unitPrice, double argument) {
-        int numberOfXs = (int) quantity / typeNumber;
-        double discountAmount = unitPrice * quantity - (argument * numberOfXs + (int) quantity % typeNumber * unitPrice);
+        int numberOfXs = ((int) quantity) / typeNumber;
+        double discountAmount = unitPrice * quantity - (argument * numberOfXs + ((int) quantity) % typeNumber * unitPrice);
         return discountAmount;
     }
 }

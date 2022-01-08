@@ -27,7 +27,8 @@ public class Receipt {
     }
 
     public void addDiscount(Discount discount) {
-        this.discounts.add(discount);
+        if (discount != null)
+            this.discounts.add(discount);
     }
 
     public List<Discount> getDiscounts() {

@@ -13,8 +13,8 @@ public class ThreeForTwoSpecialOffer extends SpecialOffer{
 
     @Override
     public double calculateDiscountAmount(double quantity, double unitPrice, double argument) {
-        int numberOfXs = (int) quantity / typeNumber;
-        double discountAmount = quantity * unitPrice - ((numberOfXs * 2 * unitPrice) + (int) quantity % typeNumber * unitPrice);
+        int numberOfXs = ((int) quantity) / typeNumber;
+        double discountAmount = quantity * unitPrice - ((numberOfXs * 2 * unitPrice) + ((int) quantity) % typeNumber * unitPrice);
         return discountAmount;
     }
 }
