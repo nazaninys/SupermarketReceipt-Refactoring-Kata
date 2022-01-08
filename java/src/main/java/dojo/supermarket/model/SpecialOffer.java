@@ -18,8 +18,7 @@ public abstract class SpecialOffer {
     public abstract double calculateDiscountAmount(double quantity, double unitPrice, double argument);
 
     public boolean hasDiscount(double quantity) {
-        int quantityAsInt = (int) quantity;
-        if (quantityAsInt < typeNumber)
+        if ((int) quantity < typeNumber)
             return false;
         else
             return true;
