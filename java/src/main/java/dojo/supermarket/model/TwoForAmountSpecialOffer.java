@@ -2,6 +2,10 @@ package dojo.supermarket.model;
 
 public class TwoForAmountSpecialOffer extends SpecialOffer {
 
+    public TwoForAmountSpecialOffer() {
+        super(2);
+    }
+
     @Override
     public String getDescription(double argument) {
         return "2 for " + argument;
@@ -9,16 +13,8 @@ public class TwoForAmountSpecialOffer extends SpecialOffer {
 
     @Override
     public double calculateDiscountAmount(double quantity, double unitPrice, double argument) {
-        double discountAmount = 0;
-        int quantityAsInt = (int) quantity;
-        if (quantityAsInt >= 2) {
-            int numberOfXs = quantityAsInt / 2;
-            double pricePerUnit = argument * numberOfXs;
-            double theTotal = (quantityAsInt % 2) * unitPrice;
-            double total = pricePerUnit + theTotal;
-            discountAmount = unitPrice * quantity - total;
-
-        }
+        int numberOfXs = (int) quantity / typeNumber;
+        double discountAmount = unitPrice * quantity - (argument * numberOfXs + (int) quantity % typeNumber * unitPrice);
         return discountAmount;
     }
 }

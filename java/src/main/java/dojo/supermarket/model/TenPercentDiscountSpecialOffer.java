@@ -1,6 +1,10 @@
 package dojo.supermarket.model;
 
 public class TenPercentDiscountSpecialOffer extends SpecialOffer {
+    public TenPercentDiscountSpecialOffer() {
+        super(1);
+    }
+
     @Override
     public String getDescription(double argument) {
         return argument + "% off";

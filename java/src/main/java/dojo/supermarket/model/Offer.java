@@ -27,7 +27,7 @@ public class Offer {
     }
 
     public Discount getDiscount(Product p, double quantity, double unitPrice) {
-        double discountAmount = specialOffer.calculateDiscountAmount(quantity, unitPrice, argument);
+        double discountAmount = specialOffer.getDiscountAmount(quantity, unitPrice, argument);
         if (discountAmount == 0)
             return null;
         else
