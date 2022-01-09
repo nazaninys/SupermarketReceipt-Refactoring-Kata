@@ -16,7 +16,7 @@ public class ShoppingCart {
     }
 
     void addItem(Product product) {
-        this.addItemQuantity(product, 1.0);
+        this.addItemQuantity(new ProductQuantity(product, 1.0));
     }
 
     Map<Product, Double> productQuantities() {
@@ -24,12 +24,12 @@ public class ShoppingCart {
     }
 
 
-    public void addItemQuantity(Product product, double quantity) {
-        items.add(new ProductQuantity(product, quantity));
-        if (productQuantities.containsKey(product)) {
-            productQuantities.put(product, productQuantities.get(product) + quantity);
+    public void addItemQuantity(ProductQuantity pq) {
+        items.add(new ProductQuantity(pq.getProduct(), pq.getQuantity()));
+        if (productQuantities.containsKey(pq.getProduct())) {
+            productQuantities.put(pq.getProduct(), productQuantities.get(pq.getProduct()) + pq.getQuantity());
         } else {
-            productQuantities.put(product, quantity);
+            productQuantities.put(pq.getProduct(), pq.getQuantity());
         }
     }
 

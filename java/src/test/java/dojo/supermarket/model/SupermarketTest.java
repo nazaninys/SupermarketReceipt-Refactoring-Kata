@@ -83,7 +83,7 @@ public class SupermarketTest {
 
     @Test
     public void loose_weight_product() {
-        theCart.addItemQuantity(apples, .5);
+        theCart.addItemQuantity(new ProductQuantity(apples, .5));
         Receipt receipt = teller.checksOutArticlesFrom(theCart);
         Approvals.verify(new ReceiptPrinter(40).printReceipt(receipt));
     }
@@ -115,7 +115,7 @@ public class SupermarketTest {
 
     @Test
     public void FiveForY_discount() {
-        theCart.addItemQuantity(apples, 5);
+        theCart.addItemQuantity(new ProductQuantity(apples, 5));
         teller.addSpecialOffer(SpecialOfferType.FiveForAmount, apples,6.99);
         Receipt receipt = teller.checksOutArticlesFrom(theCart);
         Approvals.verify(new ReceiptPrinter(40).printReceipt(receipt));
@@ -123,7 +123,7 @@ public class SupermarketTest {
 
     @Test
     public void FiveForY_discount_withSix() {
-        theCart.addItemQuantity(apples, 6);
+        theCart.addItemQuantity(new ProductQuantity(apples, 6));
         teller.addSpecialOffer(SpecialOfferType.FiveForAmount, apples,5.99);
         Receipt receipt = teller.checksOutArticlesFrom(theCart);
         Approvals.verify(new ReceiptPrinter(40).printReceipt(receipt));
@@ -131,7 +131,7 @@ public class SupermarketTest {
 
     @Test
     public void FiveForY_discount_withSixteen() {
-        theCart.addItemQuantity(apples, 16);
+        theCart.addItemQuantity(new ProductQuantity(apples, 16));
         teller.addSpecialOffer(SpecialOfferType.FiveForAmount, apples,7.99);
         Receipt receipt = teller.checksOutArticlesFrom(theCart);
         Approvals.verify(new ReceiptPrinter(40).printReceipt(receipt));
@@ -139,7 +139,7 @@ public class SupermarketTest {
 
     @Test
     public void FiveForY_discount_withFour() {
-        theCart.addItemQuantity(apples, 4);
+        theCart.addItemQuantity(new ProductQuantity(apples, 4));
         teller.addSpecialOffer(SpecialOfferType.FiveForAmount, apples,8.99);
         Receipt receipt = teller.checksOutArticlesFrom(theCart);
         Approvals.verify(new ReceiptPrinter(40).printReceipt(receipt));

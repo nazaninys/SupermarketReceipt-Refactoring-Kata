@@ -1,8 +1,5 @@
 package dojo.supermarket.model;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 import java.util.Objects;
 
 public class Product {
@@ -24,13 +21,13 @@ public class Product {
     }
 
     @Override
-    public boolean equals(@Nullable Object o) {
+    public boolean equals(Object o) {
         return o == this || (
                 o != null && o.getClass() == this.getClass() && this.equals((Product) o)
         );
     }
 
-    public boolean equals(@NotNull Product product) {
+    public boolean equals(Product product) {
         return product == this || (
                 product.getName().equals(this.name) && product.getUnit().equals(this.unit)
         );
